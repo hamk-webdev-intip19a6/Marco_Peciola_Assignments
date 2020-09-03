@@ -1,5 +1,5 @@
 from urllib.request import urlopen
-import requests, re
+import requests
 
 while (True):  
     try: 
