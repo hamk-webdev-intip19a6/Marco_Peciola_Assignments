@@ -1,0 +1,14 @@
+#form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80%;
+}
+#radios{
+    display: flex;
+    flex-direction: column
+}
+#flexoutput{
+    display: flex;
+    flex-direction: column;
+}
