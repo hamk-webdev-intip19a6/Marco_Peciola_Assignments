@@ -1,0 +1,13 @@
+h1{
+    text-align: center;
+}
+
+#imamtheflex{
+    display: flex;
+    justify-content: space-around;
+}
+#myCanvas{
+    margin-left: 35%;
+    border-color: black;
+    border-style: dotted;
+}
