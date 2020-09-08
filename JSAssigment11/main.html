@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQueryAssingment</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+
+</head>
+
+<body>
+
+    <div data-role="page">
+
+        <div data-role="header">
+            <h1>The ImpossiQuiz</h1>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <form id="questions">
+                <h3>Question1</h3>
+                <legend id="l0"></legend>
+                <fieldset data-role="controlgroup">
+                    <input type="radio" name="ans0" id="ans11" value=1>
+                    <label id="la0" for="ans11"></label>
+                    <input type="radio" name="ans0" id="ans12" value=0>
+                    <label id="la1" for="ans12"></label>
+                    <input type="radio" name="ans0" id="ans13" value=0>
+                    <label id="la2" for="ans13"></label>
+                </fieldset>
+
+                <h3>Question2</h3>
+                <legend id=l1></legend>
+                <fieldset data-role="controlgroup">
+                    <input type="radio" name="ans1" id="ans21" value=0>
+                    <label id="la3" for="ans21"></label>
+                    <input type="radio" name="ans1" id="ans22" value=0>
+                    <label id="la4" for="ans22"></label>
+                    <input type="radio" name="ans1" id="ans23" value=1>
+                    <label id="la5" for="ans23"></label>
+                </fieldset>
+                <h3>Question3</h3>
+                <legend id="l2"></legend>
+                <fieldset data-role="controlgroup">
+                    <input type="radio" name="ans2" id="ans31" value=1>
+                    <label id="la6" for="ans31"></label>
+                    <input type="radio" name="ans2" id="ans32" value=0>
+                    <label id="la7" for="ans32"></label>
+                    <input type="radio" name="ans2" id="ans33" value=0>
+                    <label id="la8" id="la1" for="ans33"></label>
+                </fieldset>
+
+
+                <a href="#answerPage" data-role="button" data-transition='' id="subs">Submit Answers</a>
+
+            </form>
+
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <h3>Made by MaceZ</h3>
+        </div>
+
+    </div>
+
+    <!--Aswers-->
+    <div data-role="page" id="answerPage">
+
+        <div data-role="header">
+            <h3>Results!</h3>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <h2 id="lasttxt"></h2>
+        </div>
+
+        <div data-role="footer">
+            <h3>Made by MaceZ</h3>
+        </div>
+
+    </div>
+
+    <script>
+        let totalcorrect = 0;
+        $(document).ready(function () {
+
+            // FETCHING DATA FROM JSON FILE 
+            $.getJSON("data.json",
+                function (data) {
+                    let questions = [];
+                    questions = data.questions;
+                    answers = data.answers;
+                    console.log(questions, "\n", answers)
+
+                    // ITERATING THROUGH OBJECTS
+
+                    for (let i = 0; i < 3; i++) {
+                        $('#l' + i).append(questions[i]);
+                    };
+                    for (let i = 0; i < 9; i++) {
+                        $('#la' + i).append(answers[i]);
+                    }
+
+                });
+        });
+        $(document).ready(function () {
+            $("#subs").click(function () {
+                let yes = 0;
+
+                for (let i = 0; i < 3; i++) {
+                    yes += Number($(`input[type=radio][name=ans${i}]:checked`).val());
+                }
+                $(`#lasttxt`).text(`You got ${yes} points from maximum of 3 points!`)
+            });
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>
