@@ -12,7 +12,6 @@ $( function() {
           // IE doesn't register the blur when sorting
           // so trigger focusout handlers to remove .ui-state-focus
           ui.item.children( "h3" ).triggerHandler( "focusout" );
- 
           // Refresh accordion to handle new order
           $( this ).accordion( "refresh" );
         }
@@ -42,7 +41,6 @@ $(function () {
 });
 
 //Autocomplete
-
 $(document).ready(function(){
     $.getJSON("data.json", function(data){
         let lista = []
