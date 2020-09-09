@@ -1,0 +1,13 @@
+#sortable{
+    list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px;
+}
+
+img{
+    height: 150px;
+    width: 150px;
+}
+.floatR{
+    float: right;
+    padding-right: 50%;
+    font-size: 3vw;
+}
