@@ -18,7 +18,7 @@ def urlChecker(userInput):
         soup = BeautifulSoup(page.content,'lxml')
         total = ""
         for match in soup.find_all('p'):
-            total += str(match)
+            total += str(match.get_text())
         if total is False:
             return "Couldn't scrape any text"
         print(total)
