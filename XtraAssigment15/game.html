@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Space Shooter Demo</title>
+		<style>
+			canvas {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				background: transparent;
+			}
+			#background {
+				z-index: -2;
+			}
+			#main {
+				z-index: -1;
+			}
+			#ship {
+				z-index: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Taustakuva -->
+		<canvas id="background" width="600" height="360">
+			Your browser does not support canvas. Please try again with a different browser.
+		</canvas>
+		<!-- Ammuksille-->
+		<canvas id="main" width="600" height="360">
+		</canvas>
+		<!-- Aluksen canvas.) -->
+		<canvas id="ship" width="600" height="360">
+		</canvas>
+		<script src="script.js"></script>
+	</body>
+</html>
